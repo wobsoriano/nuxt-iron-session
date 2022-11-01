@@ -40,6 +40,13 @@ export default defineEventHandler((event) => {
 ```
 
 ```ts
+// ~/server/api/user.ts
+export default defineEventHandler((event) => {
+  return { user: event.req.session.user }
+})
+```
+
+```ts
 // ~/server/api/logout.ts
 export default defineEventHandler((event) => {
   await event.req.session.destroy()
