@@ -38,7 +38,10 @@ export function createIronSessionMiddleware (options: IronSessionOptions) {
       getPropertyDescriptorForReqSession(session)
     )
 
-    // Adding to context to follow Nuxt convention
-    event.context.session = event.req.session
+    Object.defineProperty(
+      event.context,
+      'session',
+      getPropertyDescriptorForReqSession(session)
+    )
   })
 }
