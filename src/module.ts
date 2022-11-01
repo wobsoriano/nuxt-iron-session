@@ -11,10 +11,13 @@ export {
 export default defineNuxtModule<IronSessionOptions>({
   meta: {
     name: 'nuxt-iron-session',
-    configKey: 'session'
+    configKey: 'session',
+    compatibility: {
+      nuxt: '^3.0.0-rc.12'
+    }
   },
   defaults: {
-    cookieName: 'myapp_cookiename',
+    cookieName: 'nuxtapp_cookiename',
     password: 'complex_password_at_least_32_characters_long',
     // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
     cookieOptions: {
