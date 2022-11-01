@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { defineNuxtModule, addServerHandler } from '@nuxt/kit'
+import { defineNuxtModule, addServerHandler, addTemplate } from '@nuxt/kit'
 import defu from 'defu'
 import { IronSessionOptions } from 'iron-session'
 
@@ -31,6 +31,24 @@ export default defineNuxtModule<IronSessionOptions>({
     addServerHandler({
       handler: resolve(runtimeDir, 'handler'),
       middleware: true
+    })
+
+    addTemplate({
+      filename: 'types/iron-session.d.ts',
+      getContents: () => `
+        declare module 'h3' {
+          import type { IronSession } from 'iron-session'
+          interface H3EventContext {
+            session: IronSession
+          }
+        }
+
+        export {}
+      `
+    })
+
+    nuxt.hook('prepare:types', (options) => {
+      options.references.push({ path: resolve(nuxt.options.buildDir, 'types/iron-session.d.ts') })
     })
   }
 })

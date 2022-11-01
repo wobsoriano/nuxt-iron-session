@@ -3,6 +3,7 @@ export default defineEventHandler(async(event) => {
     id: 20,
     name: 'john',
   }
+  event.context.session
   await event.req.session.save()
   console.log(event.req.session)
   return event.req.session
