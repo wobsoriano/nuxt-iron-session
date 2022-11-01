@@ -89,7 +89,9 @@ declare module 'iron-session' {
 import { createIronSessionMiddleware } from 'nuxt-iron-session/middleware'
 
 const app = createApp()
+
 app.use(createIronSessionMiddleware({}))
+app.use('/api/user', eventHandler((event) => ({ user: event.req.session.user })))
 ```
 
 Visit the [iron-session docs](https://github.com/vvo/iron-session) to see the complete configuration.
