@@ -34,11 +34,11 @@ export default defineNuxtConfig({
 // ~/server/api/login.ts
 export default defineEventHandler((event) => {
   // get user from database then:
-  event.req.session.user = {
+  event.context.session.user = {
     id: 69,
     admin: true,
   }
-  await event.req.session.save()
+  await event.context.session.save()
   return { ok: true }
 })
 ```
@@ -46,14 +46,14 @@ export default defineEventHandler((event) => {
 ```ts
 // ~/server/api/user.ts
 export default defineEventHandler((event) => {
-  return { user: event.req.session.user }
+  return { user: event.context.session.user }
 })
 ```
 
 ```ts
 // ~/server/api/logout.ts
 export default defineEventHandler((event) => {
-  await event.req.session.destroy()
+  await event.context.session.destroy()
   return { ok: true }
 })
 ```
@@ -65,7 +65,7 @@ export default defineEventHandler((event) => {
 const nuxtApp = useNuxtApp()
 
 if (process.server) {
-  console.log('session', nuxtApp.ssrContext.event.req.session)
+  console.log('session', nuxtApp.ssrContext.event.context.session)
 }
 </script>
 ```
@@ -91,7 +91,7 @@ import { createIronSessionMiddleware } from 'nuxt-iron-session/middleware'
 const app = createApp()
 
 app.use(createIronSessionMiddleware({}))
-app.use('/api/user', eventHandler((event) => ({ user: event.req.session.user })))
+app.use('/api/user', eventHandler((event) => ({ user: event.context.session.user })))
 ```
 
 Visit the [iron-session docs](https://github.com/vvo/iron-session) to see the complete configuration.
