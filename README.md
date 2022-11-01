@@ -14,6 +14,8 @@ npm install nuxt-iron-session
 
 ## Usage
 
+### API Routes
+
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
@@ -54,6 +56,18 @@ export default defineEventHandler((event) => {
   await event.req.session.destroy()
   return { ok: true }
 })
+```
+
+### Components
+
+```html
+<script lang="ts">
+const nuxtApp = useNuxtApp()
+
+if (process.server) {
+  console.log('session', nuxtApp.ssrContext.event.req.session)
+}
+</script>
 ```
 
 ## Typing session data with TypeScript
