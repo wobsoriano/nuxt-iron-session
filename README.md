@@ -69,6 +69,15 @@ declare module 'iron-session' {
 }
 ```
 
+## Usage with h3
+
+```ts
+import { createIronSessionMiddleware } from 'nuxt-iron-session/middleware'
+
+const app = createApp()
+app.use(createIronSessionMiddleware({}))
+```
+
 Visit the [iron-session docs](https://github.com/vvo/iron-session) to see the complete configuration.
 
 ## Development
