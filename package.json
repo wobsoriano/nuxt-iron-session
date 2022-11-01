@@ -22,8 +22,8 @@
       "require": "./dist/module.cjs"
     },
     "./middleware": {
-      "import": "./dist/runtime/handler.mjs",
-      "types": "./dist/runtime/handler.d.ts"
+      "import": "./dist/runtime/middleware.mjs",
+      "types": "./dist/runtime/middleware.d.ts"
     }
   },
   "main": "./dist/module.cjs",

@@ -4,10 +4,6 @@ import { defineNuxtModule, addServerHandler } from '@nuxt/kit'
 import defu from 'defu'
 import { IronSessionOptions } from 'iron-session'
 
-export {
-  IronSessionOptions
-}
-
 export default defineNuxtModule<IronSessionOptions>({
   meta: {
     name: 'nuxt-iron-session',
