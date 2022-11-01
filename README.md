@@ -2,7 +2,9 @@
 
 [![Version](https://img.shields.io/npm/v/nuxt-iron-session?style=flat&colorA=000000&colorB=000000)](https://www.npmjs.com/package/nuxt-iron-session)
 
-Add stateless session support for Nuxt apps using signed and encrypted cookies. Powered by [iron-session](https://github.com/vvo/iron-session).
+🛠 Add stateless session support for Nuxt apps using signed and encrypted cookies. Powered by [iron-session](https://github.com/vvo/iron-session).
+
+The session data is stored in encrypted cookies ("seals"). And only your server can decode the session data. There are no session ids, making iron sessions "stateless" from the server point of view.
 
 ## Installation
 
