@@ -62,11 +62,10 @@ export default defineEventHandler((event) => {
 
 ```html
 <script lang="ts">
-const nuxtApp = useNuxtApp()
+const { ssrContext } = useNuxtApp()
 
-if (process.server) {
-  console.log('session', nuxtApp.ssrContext.event.context.session)
-}
+// Available in client and server. Unique to each request.
+const session = useState('session', () => ssrContext?.event?.context?.session)
 </script>
 ```
 
