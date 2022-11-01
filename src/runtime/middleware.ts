@@ -2,6 +2,7 @@ import { eventHandler } from 'h3'
 import type { IronSession, IronSessionOptions } from 'iron-session'
 import { getIronSession } from 'iron-session'
 
+// https://github.com/vvo/iron-session/blob/main/src/getPropertyDescriptorForReqSession.ts
 function getPropertyDescriptorForReqSession (
   session: IronSession
 ): PropertyDescriptor {
@@ -36,5 +37,8 @@ export function createIronSessionMiddleware (options: IronSessionOptions) {
       'session',
       getPropertyDescriptorForReqSession(session)
     )
+
+    // Adding to context to follow Nuxt convention
+    event.context.session = event.req.session
   })
 }
