@@ -14,8 +14,6 @@ npm install nuxt-iron-session
 
 ## Usage
 
-### API Routes
-
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
@@ -29,6 +27,8 @@ export default defineNuxtConfig({
   }
 })
 ```
+
+### API Routes
 
 ```ts
 // ~/server/api/login.ts
