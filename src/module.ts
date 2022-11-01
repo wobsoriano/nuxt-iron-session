@@ -1,6 +1,5 @@
-import { resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { defineNuxtModule, addServerHandler, addTemplate } from '@nuxt/kit'
+import { defineNuxtModule, addServerHandler, addTemplate, createResolver } from '@nuxt/kit'
 import defu from 'defu'
 import { IronSessionOptions } from 'iron-session'
 
@@ -21,6 +20,8 @@ export default defineNuxtModule<IronSessionOptions>({
     }
   },
   setup (moduleOptions, nuxt) {
+    const { resolve } = createResolver(import.meta.url)
+
     // Private runtimeConfig
     nuxt.options.runtimeConfig.session = defu(nuxt.options.runtimeConfig.session, moduleOptions)
 
