@@ -33,7 +33,7 @@
     "middleware.d.ts"
   ],
   "scripts": {
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "pnpm prepack",
     "lint": "eslint .",
     "prepack": "nuxt-module-build",
     "dev": "nuxi dev playground",
