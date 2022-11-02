@@ -15,6 +15,12 @@
             Login
           </NuxtLink>
         </li>
+        <li>
+          Profile
+        </li>
+        <li>
+          Log out
+        </li>
       </ul>
     </nav>
   </header>

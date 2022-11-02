@@ -1,15 +1,36 @@
+<script setup lang="ts"></script>
+
 <template>
-  <div>
-    Nuxt module playground!
-  </div>
+  <Head>
+    <title>Nuxt Iron Session</title>
+  </Head>
+  <Header />
+  <main>
+    <div class="container">
+      <NuxtPage />
+    </div>
+  </main>
 </template>
 
-<script setup lang="ts">
-import { useNuxtApp } from '#app'
-
-const nuxtApp = useNuxtApp()
-
-if (process.server) {
-  console.log('nuxtApp.ssrContext.event.req.session', nuxtApp.ssrContext.event.req.session)
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-</script>
+
+body {
+  margin: 0;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, Noto Sans, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.container {
+  max-width: 65rem;
+  margin: 1.5rem auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+</style>
