@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { ref } from '#imports'
+import { ref, computed, useAsyncData } from '#imports'
+const username = ref('')
 
-const errorMessage = ref('')
-
-async function handleSubmit (username: string) {
-  try {
-    const data = await $fetch('/api/login', {
-      method: 'POST',
-      body: {
-        username
-      }
-    })
-  } catch (error) {
-    errorMessage.value = error.data.statusMessage
+const { error, execute } = await useAsyncData('USER_SESSION', () => $fetch('/api/login', {
+  method: 'POST',
+  body: {
+    username: username.value
   }
+}), {
+  immediate: false
+})
+
+const errorMessage = computed(() => error.value?.data?.message ?? '')
+
+async function handleSubmit (payload: string) {
+  username.value = payload
+  await execute()
 }
 </script>
 
