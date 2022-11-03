@@ -41,7 +41,7 @@ async function handleLogout () {
   </header>
 </template>
 
-<style>
+<style scoped>
 ul {
   display: flex;
   list-style: none;

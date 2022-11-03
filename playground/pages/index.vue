@@ -6,22 +6,12 @@
       <span style="margin-right: .3rem; vertical-align: middle;">
         <img src="/GitHub-Mark-32px.png" width="32" height="32" alt="">
       </span>
-      <a href="https://github.com/vvo/iron-session">iron-session</a> - Authentication example
+      <a href="https://github.com/wobsoriano/nuxt-iron-session">nuxt-iron-session</a> - Authentication example
     </h1>
 
     <p>
-      This example creates an authentication system that uses a{" "}
+      This example creates an authentication system that uses a
       <b>signed and encrypted cookie to store session data</b>.
-    </p>
-
-    <p>
-      It uses current best practices as for authentication in the Next.js
-      ecosystem:
-      <br>
-      1. <b>no `getInitialProps`</b> to ensure every page is static
-      <br>
-      2. <b>`useUser` hook</b> together with `
-      <a href="https://swr.now.sh/">swr`</a> for data fetching
     </p>
 
     <h2>Features</h2>
@@ -29,7 +19,6 @@
     <ul>
       <li>Logged in status synchronized between browser windows/tabs</li>
       <li>Layout based on logged in status</li>
-      <li>All pages are static</li>
       <li>Session data is signed and encrypted in a cookie</li>
     </ul>
 

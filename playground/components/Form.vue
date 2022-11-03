@@ -29,7 +29,7 @@ const emit = defineEmits<{
   </form>
 </template>
 
-<style>
+<style scoped>
 form,
 label {
   display: flex;
