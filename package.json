@@ -39,6 +39,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "dev:deploy": "NITRO_PRESET=vercel-edge pnpm dev:prepare && pnpm prepack && pnpm dev:build",
     "release": "bumpp && npm publish"
   },
   "dependencies": {

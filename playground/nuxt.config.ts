@@ -7,8 +7,5 @@ export default defineNuxtConfig({
   ],
   myModule: {
     addPlugin: true
-  },
-  nitro: {
-    preset: 'vercel'
   }
 })
