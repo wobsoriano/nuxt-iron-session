@@ -3,7 +3,7 @@ import { Octokit } from 'octokit'
 const octokit = new Octokit()
 
 export default defineEventHandler(async (event) => {
-  const { user } = event.context.session
+  const user = event.context.session.user
 
   if (!user || user.isLoggedIn === false) {
     throw createError({
