@@ -30,3 +30,13 @@ export default defineEventHandler(async (event) => {
     })
   }
 })
+
+declare module 'iron-session' {
+  interface IronSessionData {
+    user?: {
+      isLoggedIn: boolean;
+      login: string;
+      avatarUrl: string;
+    }
+  }
+}

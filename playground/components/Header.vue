@@ -1,4 +1,14 @@
 <script setup lang="ts">
+import { useRouter, useAuth } from '#imports'
+
+const router = useRouter()
+const { user, logout } = useAuth()
+
+async function handleLogout () {
+  await logout()
+  user.value = null
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -6,21 +16,27 @@
     <nav>
       <ul>
         <li>
-          <NuxtLink href="/">
+          <NuxtLink to="/">
             Home
           </NuxtLink>
         </li>
-        <li>
-          <NuxtLink href="/login">
+        <li v-if="!user">
+          <NuxtLink to="/login">
             Login
           </NuxtLink>
         </li>
-        <li>
-          Profile
-        </li>
-        <li>
-          Log out
-        </li>
+        <template v-else>
+          <li>
+            <NuxtLink to="/profile">
+              Profile
+            </NuxtLink>
+          </li>
+          <li>
+            <a href="/api/logout" @click.prevent="handleLogout">
+              Log out
+            </a>
+          </li>
+        </template>
       </ul>
     </nav>
   </header>

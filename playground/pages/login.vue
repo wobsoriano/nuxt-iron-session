@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { ref, computed, useAsyncData } from '#imports'
-const username = ref('')
+import { ref, useAuth, useRouter, definePageMeta } from '#imports'
 
-const { error, execute } = await useAsyncData('USER_SESSION', () => $fetch('/api/login', {
-  method: 'POST',
-  body: {
-    username: username.value
-  }
-}), {
-  immediate: false
-})
+const router = useRouter()
+const { login } = useAuth()
 
-const errorMessage = computed(() => error.value?.data?.message ?? '')
+const errorMessage = ref('')
 
 async function handleSubmit (payload: string) {
-  username.value = payload
-  await execute()
+  try {
+    await login(payload)
+    router.push('/profile')
+  } catch (error) {
+    errorMessage.value = error?.data?.message
+  }
 }
+
+definePageMeta({
+  middleware: ['public']
+})
 </script>
 
 <template>
