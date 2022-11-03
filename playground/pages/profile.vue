@@ -11,7 +11,7 @@ definePageMeta({
 <template>
   <div>
     <h1>Your GitHub profile</h1>
-    <p v-if="user" style="font-style: italic;">
+    <p v-if="user?.isLoggedIn" style="font-style: italic;">
       Public data, from
       <a :href="`https://github.com/${user.login}`">
         https://github.com/{{ user.login }}

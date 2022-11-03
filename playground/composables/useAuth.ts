@@ -22,8 +22,8 @@ export default function useAuth () {
   }
 
   async function logout () {
-    await $fetch('/api/logout')
-    user.value = null
+    const resp = await $fetch('/api/logout')
+    user.value = resp
   }
 
   return {

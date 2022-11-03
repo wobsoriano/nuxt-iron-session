@@ -6,7 +6,6 @@ const { user, logout } = useAuth()
 
 async function handleLogout () {
   await logout()
-  user.value = null
   router.push('/login')
 }
 </script>
@@ -20,7 +19,7 @@ async function handleLogout () {
             Home
           </NuxtLink>
         </li>
-        <li v-if="!user">
+        <li v-if="!user?.isLoggedIn">
           <NuxtLink to="/login">
             Login
           </NuxtLink>
