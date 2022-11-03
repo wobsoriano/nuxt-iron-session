@@ -30,7 +30,6 @@ function getPropertyDescriptorForReqSession (
 
 export function createIronSessionMiddleware (options: IronSessionOptions) {
   return eventHandler(async (event) => {
-    console.log('TUMATAKBO NA FRIENDS')
     const session = await getIronSession(event.req, event.res, options)
 
     Object.defineProperty(
