@@ -6,6 +6,8 @@
 
 The session data is stored in encrypted cookies ("seals"). And only your server can decode the session data. There are no session ids, making iron sessions "stateless" from the server point of view.
 
+Demo https://nuxt-iron-session.vercel.app
+
 ## Installation
 
 ```bash
