@@ -26,8 +26,15 @@ async function handleLogout () {
         </li>
         <template v-else>
           <li>
-            <NuxtLink to="/profile">
-              Profile
+            <NuxtLink to="/profile" style="display: flex; align-items: center; justify-content: center;">
+              <img
+                style="border-radius: 50%"
+                :src="user.avatarUrl"
+                width="32"
+                height="32"
+                alt=""
+              >
+              <span>Profile</span>
             </NuxtLink>
           </li>
           <li>
