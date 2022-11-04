@@ -43,7 +43,7 @@
     "release": "bumpp && npm publish"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.0.0-rc.12",
+    "@nuxt/kit": "^3.0.0-rc.13",
     "defu": "^6.1.0",
     "iron-session": "^6.3.1"
   },
@@ -53,7 +53,7 @@
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "bumpp": "^8.2.1",
     "eslint": "^8.26.0",
-    "nuxt": "^3.0.0-rc.12",
+    "nuxt": "^3.0.0-rc.13",
     "octokit": "^2.0.10"
   }
 }

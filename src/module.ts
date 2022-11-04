@@ -8,7 +8,7 @@ export default defineNuxtModule<IronSessionOptions>({
     name: 'nuxt-iron-session',
     configKey: 'session',
     compatibility: {
-      nuxt: '^3.0.0-rc.12'
+      nuxt: '^3.0.0-rc.13'
     }
   },
   defaults: {
