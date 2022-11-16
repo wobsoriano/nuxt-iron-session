@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.0.0",
-    "defu": "^6.1.0",
+    "defu": "^6.1.1",
     "iron-session": "^6.3.1"
   },
   "devDependencies": {
