@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'url'
-import { defineNuxtModule, addServerHandler, addTemplate, createResolver, resolveModule } from '@nuxt/kit'
+import { defineNuxtModule, addServerHandler, addTemplate, createResolver } from '@nuxt/kit'
 import defu from 'defu'
 import { IronSessionOptions } from 'iron-session'
 
@@ -21,7 +21,6 @@ export default defineNuxtModule<IronSessionOptions>({
   },
   setup (moduleOptions, nuxt) {
     const { resolve } = createResolver(import.meta.url)
-    const resolveRuntimeModule = (path: string) => resolveModule(path, { paths: resolve('./runtime') })
 
     // Private runtimeConfig
     nuxt.options.runtimeConfig.session = defu(nuxt.options.runtimeConfig.session, moduleOptions)
@@ -33,16 +32,6 @@ export default defineNuxtModule<IronSessionOptions>({
     addServerHandler({
       handler: resolve(runtimeDir, 'handler'),
       middleware: true
-    })
-
-    nuxt.hook('nitro:config', (nitroConfig) => {
-      nitroConfig.alias = nitroConfig.alias || {}
-
-      // Inline module runtime in Nitro bundle
-      nitroConfig.externals = defu(typeof nitroConfig.externals === 'object' ? nitroConfig.externals : {}, {
-        inline: [resolve('./runtime')]
-      })
-      nitroConfig.alias['#nuxt-iron-session/middleware'] = resolveRuntimeModule('./middleware')
     })
 
     addTemplate({
