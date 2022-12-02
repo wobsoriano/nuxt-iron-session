@@ -48,7 +48,7 @@
     "iron-session": "^6.3.1"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.2.0",
+    "@nuxt/module-builder": "^0.2.1",
     "@nuxt/schema": "^3.0.0",
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
     "bumpp": "^8.2.1",
