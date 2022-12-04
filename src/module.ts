@@ -55,7 +55,6 @@ export default defineNuxtModule<IronSessionOptions>({
       })
     })
 
-
     nuxt.hook('prepare:types', (options) => {
       options.references.push({ path: resolve(nuxt.options.buildDir, 'types/iron-session.d.ts') })
     })
