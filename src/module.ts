@@ -48,6 +48,14 @@ export default defineNuxtModule<IronSessionOptions>({
       `
     })
 
+    nuxt.hook('nitro:config', (nitroConfig) => {
+      // Inline module runtime in Nitro bundle
+      nitroConfig.externals = defu(typeof nitroConfig.externals === 'object' ? nitroConfig.externals : {}, {
+        inline: [resolve('./runtime')]
+      })
+    })
+
+
     nuxt.hook('prepare:types', (options) => {
       options.references.push({ path: resolve(nuxt.options.buildDir, 'types/iron-session.d.ts') })
     })
