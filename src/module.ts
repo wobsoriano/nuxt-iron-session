@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'url'
 import { defineNuxtModule, addServerHandler, addTemplate, createResolver } from '@nuxt/kit'
-import defu from 'defu'
+import { defu } from 'defu'
 import { IronSessionOptions } from 'iron-session'
 
 export default defineNuxtModule<IronSessionOptions>({
@@ -8,7 +8,7 @@ export default defineNuxtModule<IronSessionOptions>({
     name: 'nuxt-iron-session',
     configKey: 'session',
     compatibility: {
-      nuxt: '>=3.0.0'
+      nuxt: '^3.5.0'
     }
   },
   defaults: {
