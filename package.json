@@ -43,17 +43,17 @@
     "release": "bumpp && npm publish"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.0.0",
-    "defu": "^6.1.1",
+    "@nuxt/kit": "^3.5.0",
+    "defu": "^6.1.2",
     "iron-session": "^6.3.1"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.2.1",
-    "@nuxt/schema": "^3.0.0",
-    "@nuxtjs/eslint-config-typescript": "^11.0.0",
-    "bumpp": "^8.2.1",
-    "eslint": "^8.26.0",
-    "nuxt": "^3.0.0",
-    "octokit": "^2.0.10"
+    "@nuxt/module-builder": "^0.3.1",
+    "@nuxt/schema": "^3.5.0",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.41.0",
+    "nuxt": "^3.5.0",
+    "octokit": "^2.0.16"
   }
 }
